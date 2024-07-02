@@ -1,0 +1,24 @@
+{
+  "module": {
+    "type": "es6"
+  },
+  "jsc": {
+    "target": "esnext",
+    "parser": {
+      "syntax": "typescript"
+    },
+    "experimental": {
+      "plugins": [
+        [
+          "@swc/plugin-transform-imports",
+          {
+            "^(..?\\/.*?)(\\.[jt]sx?)?$": {
+              "skipDefaultConversion": true,
+              "transform": "{{matches.[1]}}.mjs"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
